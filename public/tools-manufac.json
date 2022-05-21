@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Gulf oil",
+        "image": "https://i.ibb.co/48T0d3y/download-1.jpg",
+        "des": "Motor oil, engine oil, or engine lubricant is any one of various substances used for the lubrication of internal combustion engines. ",
+        "minorderquantity": "5",
+        "availablequantity": "25",
+        "price": "3000"
+    },
+    {
+        "name": "Hamko Battery",
+        "image": "https://i.ibb.co/HnT2cv6/download-2.jpg",
+        "des": "HAMKO is one of the largest battery manufactures of the country today with leading market share in the Solar and IPS segment. Apart from Battery sector, HAMKO ...",
+        "minorderquantity": "10",
+        "availablequantity": "300",
+        "price": "777"
+    },
+    {
+        "name": "Ontinantal tires",
+        "image": "https://i.ibb.co/hsXw4RV/images-3.jpg",
+        "des": "A tire (American English) or tyre (British English) is a ring-shaped component that surrounds a wheel's rim to transfer a vehicle's load from the axle through the wheel to the ground and to provide traction on the surface.",
+        "minorderquantity": "43",
+        "availablequantity": "26",
+        "price": "777"
+    },
+    {
+        "name": "Car bulb",
+        "image": "https://i.ibb.co/ngwDcm1/download-3.jpg",
+        "des": "List of automotive light bulb types ... Light bulbs for automobiles are made in several standardized series. Bulbs used for headlamps, turn signals and brake ",
+        "minorderquantity": "5",
+        "availablequantity": "50",
+        "price": "350"
+    },
+    {
+        "name": "Suspension parts",
+        "image": "https://i.ibb.co/hZ99FY8/511rrv-Rxiv-L-AC-SL1000.jpg",
+        "des": "Suspension is the system of tires, tire air, springs, shock absorbers and linkages that connects a vehicle to its wheels and allows relative motion between",
+        "minorderquantity": "5",
+        "availablequantity": "100",
+        "price": "290"
+    },
+    {
+        "name": "Car care products",
+        "image": "https://i.ibb.co/qgr82HY/download-4.jpg",
+        "des": "consists of onion sets of similar varietal characteristics which are mature, fairly firm, free from decay and from damage caused by tops, sprouting, freezing, mold, moisture, dirt, chaff or other foreign matter, disease, insects, or mechanical or other means.",
+        "minorderquantity": "5",
+        "availablequantity": "250",
+        "price": "290"
+    }
+]
