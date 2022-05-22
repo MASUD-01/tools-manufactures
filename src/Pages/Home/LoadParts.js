@@ -1,4 +1,5 @@
 import React from 'react';
+import PrimaryButton from '../Shared/PrimaryButton';
 
 const LoadParts = ({ parts }) => {
     const { name, image, des, price, minorderquantity, availablequantity } = parts;
@@ -16,7 +17,7 @@ const LoadParts = ({ parts }) => {
                 <h2>Availablequantity: {availablequantity}</h2>
                 <p>{des.slice(0, 150)}</p>
             </div>
-            <button class="btn btn-outline btn-secondary my-2 w-20 mx-auto">Buynow</button>
+            <PrimaryButton>Buy Now</PrimaryButton>
         </div>
 
     );
