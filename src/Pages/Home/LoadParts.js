@@ -12,7 +12,7 @@ const LoadParts = ({ parts }) => {
                     <div class="badge badge-secondary">{name}</div>
                 </h2>
                 <h2>Price: ${price}</h2>
-                <h2>Minimun Order: {minorderquantity}</h2>
+                {/* <h2>Minimun Order: {minorderquantity}</h2> */}
                 <h2>Availablequantity: {availablequantity}</h2>
                 <p>{des.slice(0, 150)}</p>
             </div>
