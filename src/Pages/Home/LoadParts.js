@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PrimaryButton from '../Shared/PrimaryButton';
 
 const LoadParts = ({ parts }) => {
@@ -17,7 +18,7 @@ const LoadParts = ({ parts }) => {
                 <h2>Availablequantity: {availablequantity}</h2>
                 <p>{des.slice(0, 150)}</p>
             </div>
-            <PrimaryButton>Buy Now</PrimaryButton>
+            <PrimaryButton> <Link to={'/purchase'}>Buy Now</Link> </PrimaryButton>
         </div>
 
     );
