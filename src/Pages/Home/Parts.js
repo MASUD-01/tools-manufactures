@@ -7,9 +7,7 @@ const Parts = () => {
         fetch('http://localhost:5000/service')
             .then(res => res.json())
             .then(data => setParts(data))
-    }, [])
-    console.log(parts)
-
+    }, []);
     return (
         <div className='my-5'>
             <div>
