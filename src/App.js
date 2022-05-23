@@ -9,6 +9,7 @@ import Blogs from './Pages/Extra/Blogs';
 import Myportfolio from './Pages/Extra/Myportfolio';
 import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
+import SignUp from './Pages/Login/SignUp';
 import RequireAuth from './Pages/Login/RequireAuth';
 import Notfound from './Pages/Notfound/Notfound';
 import Purchase from './Pages/Purchase/Purchase';
@@ -40,6 +41,7 @@ function App() {
 
 
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/signup' element={<SignUp></SignUp>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/Myportfolio' element={<Myportfolio></Myportfolio>}></Route>
         <Route path='*' element={<Notfound></Notfound>}></Route>
