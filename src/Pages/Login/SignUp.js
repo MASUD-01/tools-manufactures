@@ -33,7 +33,7 @@ const SignUp = () => {
 
     if (token) {
 
-        navigate('/appoinment')
+        navigate('/home')
     }
 
 

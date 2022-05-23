@@ -16,6 +16,7 @@ import Purchase from './Pages/Purchase/Purchase';
 import Navbar from './Pages/Shared/Navbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Users from './Pages/Dashboard/Users';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
           <Route index element={<Myorder></Myorder>}></Route>
           <Route path='addareview' element={<AddaReview></AddaReview>}></Route>
           <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='users' element={<Users></Users>}></Route>
 
 
 
