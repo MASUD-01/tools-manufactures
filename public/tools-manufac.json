@@ -11,7 +11,7 @@
         "name": "Hamko Battery",
         "image": "https://i.ibb.co/HnT2cv6/download-2.jpg",
         "des": "HAMKO is one of the largest battery manufactures of the country today with leading market share in the Solar and IPS segment. Apart from Battery sector, HAMKO ...",
-        "minorderquantity": "10",
+        "minorderquantity": "5",
         "availablequantity": "300",
         "price": "777"
     },
@@ -19,8 +19,8 @@
         "name": "Ontinantal tires",
         "image": "https://i.ibb.co/hsXw4RV/images-3.jpg",
         "des": "A tire (American English) or tyre (British English) is a ring-shaped component that surrounds a wheel's rim to transfer a vehicle's load from the axle through the wheel to the ground and to provide traction on the surface.",
-        "minorderquantity": "43",
-        "availablequantity": "26",
+        "minorderquantity": "5",
+        "availablequantity": "100",
         "price": "777"
     },
     {
@@ -28,7 +28,7 @@
         "image": "https://i.ibb.co/ngwDcm1/download-3.jpg",
         "des": "List of automotive light bulb types ... Light bulbs for automobiles are made in several standardized series. Bulbs used for headlamps, turn signals and brake ",
         "minorderquantity": "5",
-        "availablequantity": "50",
+        "availablequantity": "500",
         "price": "350"
     },
     {

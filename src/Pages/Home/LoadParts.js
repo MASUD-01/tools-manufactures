@@ -7,11 +7,11 @@ const LoadParts = ({ parts }) => {
 
     return (
 
-        <div class="card lg:max-w-lg bg-base-100 shadow-xl">
+        <div className="card lg:max-w-lg bg-base-100 shadow-xl">
             <figure><img src={image} alt="Shoes" /></figure>
-            <div class="card-body pb-0">
-                <h2 class="card-title">
-                    <div class="badge badge-secondary">{name}</div>
+            <div className="card-body pb-0">
+                <h2 className="card-title">
+                    <div className="badge badge-secondary">{name}</div>
                 </h2>
                 <h2>Price: ${price}</h2>
                 {/* <h2>Minimun Order: {minorderquantity}</h2> */}

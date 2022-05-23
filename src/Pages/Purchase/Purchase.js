@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 
 const Purchase = () => {
     const { id } = useParams();
     const [service, setService] = useState([]);
+    const { _id, name, price, minorderquantity, availablequantity } = service;
     const url = `http://localhost:5000/purchase/${id}`
     const [user] = useAuthState(auth);
 
@@ -24,27 +26,50 @@ const Purchase = () => {
 
     const handleBooking = event => {
         event.preventDefault();
-        // const booking = {
-        //     // treatmentId: _id,
-        //     treatment: name,
-        //     date: formattedDate,
-        //     slot,
-        //     price,
-        //     patient: user.email,
-        //     patientName: user.displayName,
-        //     phone: event.target.phone.value
+        const order = {
+            orderId: _id,
+            Order: name,
+            price,
+            quantity: num,
+            userEmail: user.email,
+            userName: user.displayName,
+            phone: event.target.phone.value,
+            review: event.target.textarea.value,
+            ratings: event.target.ratings.value
 
-        // }
+        }
+
+        console.log(order)
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.acknowledged) {
+                    toast.success('Thanks for your Order')
+                }
+                else {
+                    toast.error('Failed to success')
+                }
+
+            })
     }
-    let [num, setNum] = useState(0);
-    let incNum = () => {
-        if (num < 10) {
+    let [num, setNum] = useState(5);
+
+    let incNum = (availquan) => {
+        if (num < availquan) {
             setNum(Number(num) + 1);
         }
+
     };
-    const decNum = () => {
-        if (num > 0) {
-            setNum(num - 1);
+    const decNum = (minquan) => {
+        if (num > minquan) {
+            setNum(Number(num) - 1);
         }
     }
     let handleChange = (e) => {
@@ -52,52 +77,46 @@ const Purchase = () => {
     }
 
     return (
-        <div class="hero min-h-screen bg-base-200">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <div class="card w-96 bg-base-100 flex-shrink-0 shadow-xl">
-                    <figure class="px-10 pt-10">
-                        <img src={service.image} alt="Shoes" class="rounded-xl" />
+        <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="card w-96 bg-base-100 flex-shrink-0 shadow-xl">
+                    <h1 className='text-center font-bold'>Product Overview</h1>
+                    <figure className="px-10 pt-10">
+                        <img src={service.image} alt="Shoes" className="rounded-xl" />
                     </figure>
-                    <div class="card-body items-center text-center">
-                        <h2 class="card-title">{service.name}</h2>
-                        <h2 class="card-title"> price: {service.price}</h2>
-                        <h2 class="card-title"> minimun order: {service.minorderquantity}</h2>
-                        {/* <input name='quantity' type="number" placeholder='Add Quantity' required /> */}
-
-
+                    <div className="card-body items-center text-center">
+                        <h2 className="card-title">{service.name}</h2>
+                        <h2 className="card-title"> price:$ {service.price}</h2>
+                        <h2 className="card-title"> minimun quantity: {service.minorderquantity}</h2>
 
                         <div className="col-xl-1">
-                            <div class="input-group">
-                                <div class="">
-                                    <button class="btn btn-outline-primary" type="button" onClick={decNum}>-</button>
+                            <div className="input-group">
+                                <div className="">
+                                    <button className="btn btn-outline-primary" type="button" onClick={() => decNum(service.minorderquantity)}>-</button>
                                 </div>
-                                <input type="number" placeholder='minimum order' class="form-control" value={num} onChange={handleChange} />
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-primary" type="button" onClick={incNum}>+</button>
+                                <input type="number" placeholder='minimum order' className="form-control" value={num} onChange={handleChange} />
+                                <div className="input-group-prepend">
+                                    <button className="btn btn-outline-primary" type="button" onClick={() => incNum(service.availablequantity, service.minorderquantity)}>+</button>
                                 </div>
                             </div>
                         </div>
 
-
-
-
-
-                        <h2 class="card-title"> Availablequantity: {service.availablequantity}</h2>
+                        <h2 className="card-title"> Availablequantity: {service.availablequantity}</h2>
                         <p>{service.des}</p>
-                        <div class="card-actions">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
                     </div>
                 </div>
-                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div class="card-body">
+
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
                         <form onSubmit={handleBooking}>
                             <div className='grid grid-cols-1 gap-3 justify-items-center mt-2' >
                                 <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full max-w-xs" />
                                 <input type="text" name='email' disabled value={user?.email || ''} className="input input-bordered w-full max-w-xs" />
                                 <input type="text" name='phone' placeholder="Phone" className="input input-bordered w-full max-w-xs" />
-                                <textarea type="textarea" name='text-area' placeholder="type..." className="input input-bordered w-full h-full max-w-xs" />
-                                <input type="submit" value='Submit' className="btn btn-secondary w-full max-w-xs" />
+                                <p>Add your Valuable reviews</p>
+                                <input type="number" min='1' max='5' name='ratings' placeholder="ratings.." className="input input-bordered w-full max-w-xs" />
+                                <textarea type="textarea" name='textarea' placeholder="reviews comments..." className="input input-bordered w-full h-full max-w-xs" />
+                                <input type="submit" value='Purchase' className="btn btn-secondary w-full max-w-xs" />
                             </div>
                         </form>
                     </div>

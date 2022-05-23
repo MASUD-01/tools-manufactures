@@ -12,7 +12,7 @@ const Parts = () => {
         <div className='my-5'>
             <div>
                 <h1 className='text-2xl text-center'>Products Parts</h1>
-                <div class="divider w-20 mx-auto"></div>
+                <div className="divider w-20 mx-auto"></div>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-5'>
                 {
