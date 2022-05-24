@@ -8,7 +8,8 @@ import auth from '../../firebase.init';
 const Purchase = () => {
     const { id } = useParams();
     const [service, setService] = useState([]);
-    const { _id, name, price, minorderquantity, availablequantity } = service;
+    const { _id, name, price, image, des, minorderquantity, availablequantity } = service;
+
     const url = `http://localhost:5000/purchase/${id}`
     const [user] = useAuthState(auth);
 
@@ -30,6 +31,7 @@ const Purchase = () => {
             orderId: _id,
             Order: name,
             price,
+            image: image,
             quantity: num,
             userEmail: user.email,
             userName: user.displayName,
@@ -38,8 +40,6 @@ const Purchase = () => {
             ratings: event.target.ratings.value
 
         }
-
-        console.log(order)
         fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
@@ -51,7 +51,7 @@ const Purchase = () => {
             .then(data => {
 
                 if (data.acknowledged) {
-                    toast.success('Thanks for your Order')
+                    toast.success('Thanks htmlFor your Order')
                 }
                 else {
                     toast.error('Failed to success')
@@ -82,27 +82,27 @@ const Purchase = () => {
                 <div className="card w-96 bg-base-100 flex-shrink-0 shadow-xl">
                     <h1 className='text-center font-bold'>Product Overview</h1>
                     <figure className="px-10 pt-10">
-                        <img src={service.image} alt="Shoes" className="rounded-xl" />
+                        <img src={image} alt="Shoes" className="rounded-xl" />
                     </figure>
                     <div className="card-body items-center text-center">
-                        <h2 className="card-title">{service.name}</h2>
-                        <h2 className="card-title"> price:$ {service.price}</h2>
-                        <h2 className="card-title"> minimun quantity: {service.minorderquantity}</h2>
+                        <h2 className="card-title">{name}</h2>
+                        <h2 className="card-title"> price:$ {price}</h2>
+                        <h2 className="card-title"> minimun quantity: {minorderquantity}</h2>
 
                         <div className="col-xl-1">
                             <div className="input-group">
                                 <div className="">
-                                    <button className="btn btn-outline-primary" type="button" onClick={() => decNum(service.minorderquantity)}>-</button>
+                                    <button className="btn btn-outline-primary" type="button" onClick={() => decNum(minorderquantity)}>-</button>
                                 </div>
                                 <input type="number" placeholder='minimum order' className="form-control" value={num} onChange={handleChange} />
                                 <div className="input-group-prepend">
-                                    <button className="btn btn-outline-primary" type="button" onClick={() => incNum(service.availablequantity, service.minorderquantity)}>+</button>
+                                    <button className="btn btn-outline-primary" type="button" onClick={() => incNum(availablequantity, minorderquantity)}>+</button>
                                 </div>
                             </div>
                         </div>
 
-                        <h2 className="card-title"> Availablequantity: {service.availablequantity}</h2>
-                        <p>{service.des}</p>
+                        <h2 className="card-title"> Availablequantity: {availablequantity}</h2>
+                        <p>{des}</p>
                     </div>
                 </div>
 

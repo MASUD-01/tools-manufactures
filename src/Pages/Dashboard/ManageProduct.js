@@ -17,16 +17,16 @@ const ManageProduct = () => {
     }
     return (
         <div>
-            <h2 className='text-2xl'> Manage Doctors {product.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <h2 className='text-2xl'> Manage Product {product.length}</h2>
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
                             <th></th>
-                            <th>Avater</th>
+                            <th>Photo</th>
                             <th>name</th>
-                            <th>Specialty</th>
+                            <th>Price</th>
                             <th>Action</th>
                         </tr>
                     </thead>

@@ -2,7 +2,7 @@
     {
         "name": "Gulf oil",
         "image": "https://i.ibb.co/48T0d3y/download-1.jpg",
-        "des": "Motor oil, engine oil, or engine lubricant is any one of various substances used for the lubrication of internal combustion engines. ",
+        "des": "Motor oil, engine oil, or engine lubricant is any one of various substances used htmlFor the lubrication of internal combustion engines. ",
         "minorderquantity": "5",
         "availablequantity": "25",
         "price": "3000"
@@ -26,7 +26,7 @@
     {
         "name": "Car bulb",
         "image": "https://i.ibb.co/ngwDcm1/download-3.jpg",
-        "des": "List of automotive light bulb types ... Light bulbs for automobiles are made in several standardized series. Bulbs used for headlamps, turn signals and brake ",
+        "des": "List of automotive light bulb types ... Light bulbs htmlFor automobiles are made in several standardized series. Bulbs used htmlFor headlamps, turn signals and brake ",
         "minorderquantity": "5",
         "availablequantity": "500",
         "price": "350"

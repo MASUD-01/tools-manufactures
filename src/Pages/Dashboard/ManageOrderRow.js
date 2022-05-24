@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ProductRow = ({ product, index, setDeletingProduct }) => {
-    const { name, price, image } = product;
+const ManageOrderRow = ({ order, index }) => {
+    const { Order: name, price, image, userName } = order;
     return (
         <tr>
             <th>{index + 1}</th>
@@ -11,12 +11,11 @@ const ProductRow = ({ product, index, setDeletingProduct }) => {
                 </div>
             </div></td>
             <td>{name}</td>
+            <td>{userName}</td>
             <td>{price}</td>
-            <td>
-                <label onClick={() => setDeletingProduct(product)} htmlFor="delete-confirm-modal" className="btn btn-xs btn-error">Delete</label>
-            </td>
+
         </tr >
     );
 };
 
-export default ProductRow;
+export default ManageOrderRow;
