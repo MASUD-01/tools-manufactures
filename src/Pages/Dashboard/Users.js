@@ -1,22 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import UserRow from './UserRow';
-// import { useQuery } from 'react-query';
-// import Loading from '../Shared/Loading';
+import { useQuery } from 'react-query';
+import Loading from '../Shared/Loading';
 
-// import Loading from '../Shared/Loading';
+
 
 const Users = () => {
-    const [users, setUsers] = useState([])
-    useEffect(() => {
-        fetch('http://localhost:5000/user', {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json'
-            }
-        }).then(res => res.json())
-            .then(data => setUsers(data))
-    }, [])
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
 
+        method: 'GET',
+        headers: {
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    }).then(res => res.json()))
+    if (isLoading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div>
@@ -39,9 +38,7 @@ const Users = () => {
                             key={user._id}
                             user={user}
                             index={index}
-
-
-
+                            refetch={refetch}
                         ></UserRow>)
                     }
                 </tbody>

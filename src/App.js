@@ -23,6 +23,7 @@ import ManageProduct from './Pages/Dashboard/ManageProduct';
 import Payment from './Pages/Dashboard/Payment';
 
 function App() {
+
   return (
     <div className="">
       <Navbar></Navbar>
@@ -34,11 +35,10 @@ function App() {
 
 
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-
-          <Route index element={<Myorder></Myorder>}></Route>
+          <Route index element={<MyProfile></MyProfile>}></Route>
+          <Route path='myorder' element={<Myorder></Myorder>}></Route>
           <Route path='addareview' element={<AddaReview></AddaReview>}></Route>
           <Route path='payment/:id' element={<Payment></Payment>}></Route>
-          <Route path='myprofile' element={<MyProfile></MyProfile>}></Route>
           <Route path='users' element={<Users></Users>}></Route>
           <Route path='addaproduct' element={<Addaproduct></Addaproduct>}></Route>
           <Route path='manageallorder' element={<ManageAllOrder></ManageAllOrder>}></Route>
