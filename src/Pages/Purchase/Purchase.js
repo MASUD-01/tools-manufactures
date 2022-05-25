@@ -10,7 +10,7 @@ const Purchase = () => {
     const [service, setService] = useState([]);
     const { _id, name, price, image, des, minorderquantity, availablequantity } = service;
 
-    const url = `https://young-sierra-81970.herokuapp.com/purchase/${id}`
+    const url = `http://localhost:5000/purchase/${id}`
     const [user] = useAuthState(auth);
 
 
@@ -41,7 +41,7 @@ const Purchase = () => {
             ratings: event.target.ratings.value
 
         }
-        fetch('https://young-sierra-81970.herokuapp.com/order', {
+        fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -52,7 +52,7 @@ const Purchase = () => {
             .then(data => {
 
                 if (data.acknowledged) {
-                    toast.success('Thanks htmlFor your Order')
+                    toast.success('Thanks For your Order')
                 }
                 else {
                     toast.error('Failed to success')

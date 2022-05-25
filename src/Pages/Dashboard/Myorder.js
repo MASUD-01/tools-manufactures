@@ -6,12 +6,13 @@ import auth from '../../firebase.init';
 
 const Myorder = () => {
     const [order, setOrders] = useState([]);
+    const [update, setUpdate] = useState(false)
     const [cancel, setCancel] = useState('')
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`https://young-sierra-81970.herokuapp.com/order?email=${user.email}`, {
+            fetch(`http://localhost:5000/order?email=${user.email}`, {
                 method: 'GET',
                 // headers: {
                 //     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -26,11 +27,11 @@ const Myorder = () => {
 
                 });
         }
-    }, [user, navigate])
+    }, [user, navigate, update])
 
 
     const handleEmail = () => {
-        fetch(`https://young-sierra-81970.herokuapp.com/ordercancel/${cancel}`, {
+        fetch(`http://localhost:5000/ordercancel/${cancel}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -41,7 +42,8 @@ const Myorder = () => {
             .then(data => {
                 console.log(data)
                 if (data.deletedCount) {
-                    window.location.reload(false);
+                    setUpdate(!update)
+                    // window.location.reload(false);
                 }
             })
     }
@@ -101,8 +103,8 @@ const Myorder = () => {
                             <h3 className="font-bold text-lg text-red-400">Are you sure to delete? Product:  <span className='text-red-600'> {''}</span></h3>
                             <p className="py-4">You've been selected a product that you are going to delete???</p>
                             <div className="modal-action">
-                                <button onClick={() => handleEmail()} className="btn btn-xs btn-error">Delete</button>
-                                <label htmlFor="delete-confirm" className="btn btn-xs btn-error">Cancel</label>
+                                {/* <button onClick={() => handleEmail()} className="btn btn-xs btn-error">Delete</button> */}
+                                <label onClick={() => handleEmail()} htmlFor="delete-confirm" className="btn btn-xs btn-error">Yes</label>
                             </div>
                         </div>
                     </div>

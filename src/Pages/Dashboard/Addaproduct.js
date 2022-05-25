@@ -33,7 +33,7 @@ const Addaproduct = () => {
                     }
 
                     //send to your database
-                    fetch('https://young-sierra-81970.herokuapp.com/product', {
+                    fetch('http://localhost:5000/product', {
                         method: 'POST',
                         headers: {
                             'content-type': 'application/json',

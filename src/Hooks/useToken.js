@@ -15,7 +15,7 @@ const useToken = user => {
         };
 
         if (email) {
-            fetch(`https://young-sierra-81970.herokuapp.com/user/${email}`, {
+            fetch(`http://localhost:5000/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json',

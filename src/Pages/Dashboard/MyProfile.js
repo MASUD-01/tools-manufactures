@@ -12,7 +12,7 @@ const MyProfile = () => {
     const [user] = useAuthState(auth)
     const email = user?.email
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`https://young-sierra-81970.herokuapp.com/user/${email}`, {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/user/${email}`, {
 
         method: 'GET',
         // headers: {
@@ -34,7 +34,7 @@ const MyProfile = () => {
 
 
         if (email) {
-            fetch(`https://young-sierra-81970.herokuapp.com/user/${email}`, {
+            fetch(`http://localhost:5000/user/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
