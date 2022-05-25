@@ -31,7 +31,7 @@ const Addaproduct = () => {
                         des: data.productdes,
                         image: img
                     }
-                    console.log(doctor)
+
                     //send to your database
                     fetch('http://localhost:5000/product', {
                         method: 'POST',

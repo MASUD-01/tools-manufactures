@@ -13,6 +13,7 @@ const Purchase = () => {
     const url = `http://localhost:5000/purchase/${id}`
     const [user] = useAuthState(auth);
 
+
     useEffect(() => {
         fetch(url, {
             method: 'GET',
@@ -92,11 +93,11 @@ const Purchase = () => {
                         <div className="col-xl-1">
                             <div className="input-group">
                                 <div className="">
-                                    <button className="btn btn-outline-primary" type="button" onClick={() => decNum(minorderquantity)}>-</button>
+                                    <button className="btn btn-outline-primary hover:bg-primary hover:text-black" type="button" onClick={() => decNum(minorderquantity)}>-</button>
                                 </div>
                                 <input type="number" placeholder='minimum order' className="form-control" value={num} onChange={handleChange} />
                                 <div className="input-group-prepend">
-                                    <button className="btn btn-outline-primary" type="button" onClick={() => incNum(availablequantity, minorderquantity)}>+</button>
+                                    <button className="btn btn-outline-primary hover:bg-primary hover:text-black" type="button" onClick={() => incNum(availablequantity, minorderquantity)}>+</button>
                                 </div>
                             </div>
                         </div>

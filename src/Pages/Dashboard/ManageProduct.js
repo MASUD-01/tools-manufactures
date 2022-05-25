@@ -16,7 +16,7 @@ const ManageProduct = () => {
         return <Loading></Loading>
     }
     return (
-        <div>
+        <div className=''>
             <h2 className='text-2xl'> Manage Product {product.length}</h2>
             <div className="overflow-x-auto">
                 <table className="table w-full">
