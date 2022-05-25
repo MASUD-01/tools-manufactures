@@ -10,7 +10,7 @@ const Purchase = () => {
     const [service, setService] = useState([]);
     const { _id, name, price, image, des, minorderquantity, availablequantity } = service;
 
-    const url = `http://localhost:5000/purchase/${id}`
+    const url = `https://young-sierra-81970.herokuapp.com/purchase/${id}`
     const [user] = useAuthState(auth);
 
 
@@ -41,7 +41,7 @@ const Purchase = () => {
             ratings: event.target.ratings.value
 
         }
-        fetch('http://localhost:5000/order', {
+        fetch('https://young-sierra-81970.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

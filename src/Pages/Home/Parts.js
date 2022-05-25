@@ -4,7 +4,7 @@ import LoadParts from './LoadParts';
 const Parts = () => {
     const [parts, setParts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/service', {
+        fetch('https://young-sierra-81970.herokuapp.com/service', {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
