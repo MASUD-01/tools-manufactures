@@ -23,7 +23,7 @@ const Addaproduct = () => {
             .then(result => {
                 if (result.success) {
                     const img = result.data.url
-                    const doctor = {
+                    const product = {
                         name: data.productname,
                         price: data.productprice,
                         availablequantity: data.productavailable,
@@ -39,7 +39,7 @@ const Addaproduct = () => {
                             'content-type': 'application/json',
                             authorization: `Bearer ${localStorage.getItem('accessToken')}`
                         },
-                        body: JSON.stringify(doctor)
+                        body: JSON.stringify(product)
                     })
                         .then(res => res.json())
                         .then(inserted => {
