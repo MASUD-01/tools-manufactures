@@ -15,6 +15,7 @@ const Myportfolio = () => {
                         <h1 className="text-2xl font-bold">Email:masudrana@gmail.com</h1>
                         <h1 className="text-2xl font-bold">Education: Higher Secondary</h1>
                         <h1 className="text-2xl font-bold">Skill: Html,CSS,Bootstrap,Tailwind, <br /> Javascript,React Js, Node Js, Mongodb</h1>
+                        <h1 className="text-2xl font-bold">WEBSITE: https://tools-menufactures.web.app/</h1>
                         <p className="py-6"></p>
                     </div>
                 </div>
