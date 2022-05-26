@@ -56,9 +56,9 @@ const MyProfile = () => {
             <div className="hero  bg-base-200">
                 <div className="flex-none lg:flex">
                     <div className='p-0 lg:p-8'>
-                        <div class="card w-80 bg-base-100 shadow-xl mt-3">
+                        <div className="card w-80 bg-base-100 shadow-xl mt-3">
                             <figure className='p-3'><img src={user?.photoURL} alt="user image" /></figure>
-                            <div class="card-body">
+                            <div className="card-body">
                                 <h1 className='text-2xl py-3'>Name: {user?.displayName}</h1>
                                 <h1 className='text-2xl pb-3'>Email: {user?.email}</h1>
                                 <h1 className='text-2xl pb-3'>Education: {users.education}</h1>

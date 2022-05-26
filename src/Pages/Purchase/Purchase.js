@@ -26,7 +26,9 @@ const Purchase = () => {
     }, [url, id])
 
 
+
     const handleBooking = event => {
+
         event.preventDefault();
         const order = {
             orderId: _id,
@@ -68,6 +70,7 @@ const Purchase = () => {
         }
 
     };
+
     const decNum = (minquan) => {
         if (num > minquan) {
             setNum(Number(num) - 1);
@@ -99,6 +102,9 @@ const Purchase = () => {
                                 <div className="input-group-prepend">
                                     <button className="btn btn-outline-primary hover:bg-primary hover:text-black" type="button" onClick={() => incNum(availablequantity, minorderquantity)}>+</button>
                                 </div>
+                                {/* <div className="input-group-prepend">
+                                    <button className="btn btn-outline-primary hover:bg-primary hover:text-black" type="button" onClick={(event) => { incNum(availablequantity, minorderquantity); func2(num, availablequantity); }}>+</button>
+                                </div> */}
                             </div>
                         </div>
 

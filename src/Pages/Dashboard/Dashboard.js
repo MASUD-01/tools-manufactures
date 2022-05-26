@@ -14,7 +14,7 @@ const Dashboard = () => {
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content" >
                 {/* <!-- Page content here --> */}
-                < h2 className='text-3xl' > Dashboard <span className='text-2xl'>(name: {user?.displayName})</span> {admin ? "admin" : ''}</h2 >
+                < h2 className='text-3xl' > Dashboard <span className='text-2xl'>(name: {user?.displayName})</span> {admin ? "admin" : 'non admin'}</h2 >
                 <Outlet></Outlet>
 
 
