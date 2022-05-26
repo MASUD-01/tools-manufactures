@@ -2,7 +2,7 @@ import React from 'react';
 import banner1 from '../../assets/images/Vehicles-parts.jpeg'
 import banner2 from '../../assets/images/car-parts1.jpg'
 
-// style={{ background: `url(${banner})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}
+
 const Banner = () => {
     return (
         <div>
@@ -28,3 +28,6 @@ const Banner = () => {
 };
 
 export default Banner;
+
+
+// style={{ background: `url(${banner})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}

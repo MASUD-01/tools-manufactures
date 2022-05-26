@@ -12,7 +12,7 @@ const Myorder = () => {
     const navigate = useNavigate();
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/order?email=${user.email}`, {
+            fetch(`https://young-sierra-81970.herokuapp.com/order?email=${user.email}`, {
                 method: 'GET',
                 // headers: {
                 //     'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -31,7 +31,7 @@ const Myorder = () => {
 
 
     const handleEmail = () => {
-        fetch(`http://localhost:5000/ordercancel/${cancel}`, {
+        fetch(`https://young-sierra-81970.herokuapp.com/ordercancel/${cancel}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
