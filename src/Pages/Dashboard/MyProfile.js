@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { useQuery } from 'react-query';
@@ -7,12 +7,14 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
 const MyProfile = () => {
-
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [update, setUpdate] = useState(false)
+    const { register, formState: { errors }, handleSubmit } = useForm({
+        mode: "onChange"
+    });
     const [user] = useAuthState(auth)
     const email = user?.email
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch(`http://localhost:5000/user/${email}`, {
+    const { data: users, isLoading, refetch } = useQuery([user, update], () => fetch(`http://localhost:5000/user/${email}`, {
 
         method: 'GET',
         // headers: {
@@ -23,6 +25,7 @@ const MyProfile = () => {
         return <Loading></Loading>
     }
     const onSubmit = data => {
+
         const email = user?.email;
         const updatedata = {
             education: data.education,
@@ -43,7 +46,7 @@ const MyProfile = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-
+                    setUpdate(!update)
                 })
         }
 
@@ -53,38 +56,41 @@ const MyProfile = () => {
             <div className="hero  bg-base-200">
                 <div className="flex-none lg:flex">
                     <div className='p-0 lg:p-8'>
-                        <img src={user?.photoURL} className="max-w-sm rounded-lg shadow-2xl" />
-                        <h1>Name: {user?.displayName}</h1>
-                        <h1>Email: {user?.email}</h1>
-                        <h1>Education: {users.education}</h1>
-                        <h1>Location: {users.location}</h1>
-                        <h1>Phone: {users.phone}</h1>
+                        <div class="card w-80 bg-base-100 shadow-xl mt-3">
+                            <figure className='p-3'><img src={user?.photoURL} alt="user image" /></figure>
+                            <div class="card-body">
+                                <h1 className='text-2xl py-3'>Name: {user?.displayName}</h1>
+                                <h1 className='text-2xl pb-3'>Email: {user?.email}</h1>
+                                <h1 className='text-2xl pb-3'>Education: {users.education}</h1>
+                                <h1 className='text-2xl pb-3'>Location: {users.location}</h1>
+                                <h1 className='text-2xl'>Phone: {users.phone}</h1>
+
+                            </div>
+                        </div>
 
                     </div>
-                    <div className='p-0 lg:p-8'>
+                    <div className='p-0 lg:p-8 mt-5 lg:mt-0'>
                         <div className='flex justify-center items-center' >
                             <div className="card w-50 lg:w-96 bg-base-100 shadow-xl px-3" >
                                 <div className="card-body" >
                                     <h2 className="text-2xl font-bold text-center" >Update Profile</h2 >
                                     <form onSubmit={handleSubmit(onSubmit)}>
-                                        <div className="form-control w-full max-w-xs">
+                                        <div className="form-control w-full max-w-xs  mt-3 lg:mt-0">
                                             <label className="label">
                                                 <span className="label-text">Education</span>
                                             </label >
 
                                             <input type="text" placeholder="your education" className="input input-bordered w-full max-w-xs"
                                                 {...register("education", {
-                                                    required: {
-                                                        value: false,
-                                                        message: 'education is required'
-                                                    }
+
                                                 })
                                                 }
+
                                             />
-                                            < label className="label" >
-                                                {errors.education?.type === 'required' && <span className="label-text-alt text-red-500" > {errors.education.message}</span>}
-                                            </label >
+
                                         </div >
+
+
                                         <div className="form-control w-full max-w-xs" >
                                             <label className="label" >
                                                 <span className="label-text" >Location</span >
@@ -92,21 +98,13 @@ const MyProfile = () => {
 
                                             <input type="text" placeholder="your location" className="input input-bordered w-full max-w-xs"
                                                 {...register("location", {
-                                                    required: {
-                                                        value: false,
-                                                        message: 'location is required'
-                                                    },
 
                                                 })
                                                 }
                                             />
-                                            < label className="label" >
-                                                {errors.email?.type === 'required' && <span className="label-text-alt text-red-500" > {errors.email.message}</span>}
 
-
-
-                                            </label >
                                         </div >
+
                                         <div className="form-control w-full max-w-xs" >
                                             <label className="label" >
                                                 <span className="label-text" >Phone Number</span >
@@ -114,10 +112,6 @@ const MyProfile = () => {
 
                                             <input type="number" placeholder="your phonenumber" className="input input-bordered w-full max-w-xs"
                                                 {...register("phonenumber", {
-                                                    required: {
-                                                        value: false,
-                                                        message: 'phonenumber is required'
-                                                    },
 
                                                 })
                                                 }

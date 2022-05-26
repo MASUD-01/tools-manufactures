@@ -14,7 +14,7 @@ const Dashboard = () => {
             <input id="dashboard-sidebar" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content" >
                 {/* <!-- Page content here --> */}
-                < h2 className='text-3xl' > Dashboard (user: {user?.displayName})</h2 >
+                < h2 className='text-3xl' > Dashboard <span className='text-2xl'>(name: {user?.displayName})</span> {admin ? "admin" : ''}</h2 >
                 <Outlet></Outlet>
 
 
@@ -27,7 +27,7 @@ const Dashboard = () => {
                     < li > <Link to='/dashboard'>My Profile</Link></li >
                     {!admin && <>
                         <li><Link to='/dashboard/myorder'>My Order</Link></li>
-                        <li><Link to='/dashboard/addareview'>My reviews</Link></li>
+                        {/* <li><Link to='/dashboard/addareview'>My reviews</Link></li> */}
                     </>
                     }
 

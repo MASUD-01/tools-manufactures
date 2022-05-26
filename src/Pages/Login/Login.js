@@ -103,7 +103,7 @@ const Login = () => {
                             </label >
                         </div >
                         {signInerror}
-                        < input className='btn w-full max-w-xs text-white' type="submit" value='Login' />
+                        < input className='btn w-full max-w-xs btn-outline bg-primary text-white' type="submit" value='Login' />
                     </form >
                     <p><small>New to Folio Auto Parts <Link className='text-primary' to='/signup'>Create new Account</Link></small> </p >
                 </div >

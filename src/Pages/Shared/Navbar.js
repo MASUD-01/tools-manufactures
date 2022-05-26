@@ -21,7 +21,7 @@ const Navbar = () => {
 
     </>
     return (
-        <div className="navbar bg-primary text-blcak lg:text-white">
+        <div className="navbar text-blcak lg:text-black">
             <div className="navbar-start" >
                 <div className="dropdown" >
                     <label tabIndex="0" className="btn btn-ghost lg:hidden" >
@@ -31,7 +31,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul >
                 </div >
-                <Link to='/' className="btn btn-ghost normal-case text-xl">Folio Auto Parts</Link>
+                <Link to='/' className="btn bg-white text-primary hover:btn-outline normal-case text-xl">Folio<span className=' hover:text-red-700'>A</span>uto Parts</Link>
             </div >
             <div className="navbar-end  hidden lg:flex" >
                 <ul className="menu menu-horizontal p-0" >

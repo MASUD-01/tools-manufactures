@@ -7,20 +7,22 @@ const LoadParts = ({ parts }) => {
 
     return (
 
-        <div className="card lg:max-w-lg bg-base-100 shadow-xl">
-            <figure><img src={image} alt="Shoes" /></figure>
-            <div className="card-body pb-0">
+        <div className="card relative h-[550px] w-[280px] shadow-xl mx-auto p-5">
+            <figure><img className='' src={image} alt="Shoes" /></figure>
+            <div className="py-10">
                 <h2 className="card-title">
                     <div className="badge badge-secondary">{name}</div>
                 </h2>
                 <h2>Price: ${price}</h2>
-                {/* <h2>Minimun Order: {minorderquantity}</h2> */}
                 <h2>Availablequantity: {availablequantity}</h2>
-                <p>{des.slice(0, 150)}</p>
+                <p className=''>{des.slice(0, 150)}</p>
             </div>
-            <PrimaryButton
+            <div
+                className='absolute bottom-0 w-full mx-auto'>
+                <PrimaryButton
 
-            > <Link to={`/purchase/${_id}`} >Buy Now</Link> </PrimaryButton>
+                > <Link to={`/purchase/${_id}`} >Buy Now</Link> </PrimaryButton>
+            </div>
         </div>
 
     );
