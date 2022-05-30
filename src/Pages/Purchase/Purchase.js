@@ -108,7 +108,7 @@ const Purchase = () => {
                             </div>
                         </div>
 
-                        <h2 className="card-title"> Availablequantity: {availablequantity}</h2>
+                        <h2 className="card-title"> Availablequentity: {availablequantity}</h2>
                         <p>{des}</p>
                     </div>
                 </div>
